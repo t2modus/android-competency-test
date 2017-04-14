@@ -140,6 +140,7 @@ public class DetailActivity extends AppCompatActivity {
             friend.setState(jObj.getString("state"));
             friend.setZipcode(jObj.getString("zipcode"));
             friend.setBio(jObj.getString("bio"));
+            friend.setAvailable(jObj.getBoolean("available"));
 
             //update UI
             updateUI(friend);

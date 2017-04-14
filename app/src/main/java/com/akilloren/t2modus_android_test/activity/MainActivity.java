@@ -25,10 +25,10 @@ import retrofit.Retrofit;
 public class MainActivity extends AppCompatActivity {
 
     private Call<List<Friend>> call;
-    RecyclerView recyclerView;
-    FriendAdapter adapter;
-    List<Friend> friends;
-    ProgressDialog progressDialog;
+    private RecyclerView recyclerView;
+    private FriendAdapter adapter;
+    private List<Friend> friends;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,13 +24,13 @@ import java.io.IOException;
 
 public class DetailActivity extends AppCompatActivity {
 
-    ImageView personPhoto;
-    TextView personName;
-    TextView personStatus;
-    TextView personContactInfo;
-    TextView personBioInfo;
-    ProgressDialog progressDialog;
-    ImageView statusIndicator;
+    private ImageView personPhoto;
+    private TextView personName;
+    private TextView personStatus;
+    private TextView personContactInfo;
+    private TextView personBioInfo;
+    private ProgressDialog progressDialog;
+    private ImageView statusIndicator;
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -51,6 +51,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         }
 
+        //get passed in status text for display since we don't get it from the details
         if (getIntent().hasExtra("status")) {
             personStatus.setText(getIntent().getStringExtra("status"));
         }

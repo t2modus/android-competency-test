@@ -26,40 +26,43 @@ public class FriendDetailsActivity extends AppCompatActivity {
     public static final String TAG = FriendDetailsActivity.class.getSimpleName();
     FriendRetrofitInterface retrofitInterface = T2Application.retrofit.create(FriendRetrofitInterface.class);
     ActivityFriendDetailsBinding friendDetailBinding;
+    int friendId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         friendDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_friend_details);
 
-        int friendId = getIntent().getIntExtra(Extras.FRIEND_ID, -1);
+        friendId = getIntent().getIntExtra(Extras.FRIEND_ID, -1);
+        callGetFriendService();
+    }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(FriendDetailsActivity.this, "WIP: Send Message to Friend", Toast.LENGTH_SHORT).show();
-            }
-        });
+    public void onFabClick(View view){
+        Toast.makeText(FriendDetailsActivity.this, "WIP: Send Message to Friend", Toast.LENGTH_SHORT).show();
+    }
 
-
+    private void callGetFriendService(){
+        friendDetailBinding.progressBar.setVisibility(View.VISIBLE);
         retrofitInterface.getFriend(friendId).enqueue(new Callback<FriendDetails>() {
             @Override
             public void onResponse(Call<FriendDetails> call, Response<FriendDetails> response) {
+                friendDetailBinding.progressBar.setVisibility(View.GONE);
                 if(response.isSuccessful()){
                     //// TODO: 4/14/2017 need image for when image call was unsuccesfull
                     Picasso.with(FriendDetailsActivity.this).load(response.body().getImg()).into(friendDetailBinding.ivProfilePic);
                     friendDetailBinding.setFriendDetail(response.body());
                 } else {
                     Log.d(TAG, "onResponse: Failure");
+                    Toast.makeText(FriendDetailsActivity.this, getString(R.string.default_error_message), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<FriendDetails> call, Throwable t) {
                 Log.d(TAG, "onFailure: " + t.getLocalizedMessage());
+                friendDetailBinding.progressBar.setVisibility(View.GONE);
+                Toast.makeText(FriendDetailsActivity.this, getString(R.string.default_error_message), Toast.LENGTH_SHORT).show();
+
             }
         });
-
     }
-
 }

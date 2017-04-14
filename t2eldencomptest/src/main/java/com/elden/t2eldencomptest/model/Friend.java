@@ -10,9 +10,10 @@ public class Friend {
     int id;
     @SerializedName("first_name")
     String firstName;
-    @SerializedName("lastName")
+    @SerializedName("last_name")
     String lastName;
     String status;
+    String img;
     boolean available;
 
     public int getId() {
@@ -45,6 +46,14 @@ public class Friend {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public boolean isAvailable() {

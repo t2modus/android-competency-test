@@ -1,5 +1,6 @@
 package com.elden.t2eldencomptest.activities.friend_list.recycler_view;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.elden.t2eldencomptest.Extras;
 import com.elden.t2eldencomptest.R;
+import com.elden.t2eldencomptest.activities.friend_list.FriendDetailsActivity;
 import com.elden.t2eldencomptest.databinding.RvRowFriendListBinding;
 import com.elden.t2eldencomptest.model.Friend;
 import com.squareup.picasso.Picasso;
@@ -32,7 +35,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
     }
 
     @Override
-    public void onBindViewHolder(FriendListRvViewHolder holder, int position) {
+    public void onBindViewHolder(final FriendListRvViewHolder holder, final int position) {
         holder.flBinding.setFriend(friendList.get(position));
         holder.flBinding.executePendingBindings();
 
@@ -46,7 +49,9 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
             @Override
             public void onClick(View v) {
                 //Go go Friend detail view
-                Toast.makeText(v.getContext(), "WIP: Go to friend detail view", Toast.LENGTH_SHORT).show();
+                Intent goToFriendDetailView = new Intent(holder.flBinding.getRoot().getContext(), FriendDetailsActivity.class);
+                goToFriendDetailView.putExtra(Extras.FRIEND_ID, friendList.get(position).getId());
+                holder.flBinding.getRoot().getContext().startActivity(goToFriendDetailView);
             }
         });
     }

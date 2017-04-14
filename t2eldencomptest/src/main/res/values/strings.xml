@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">T2EldenCompTest</string>
+    <string name="title_activity_friend_details">FriendDetails</string>
 </resources>

@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="friend"
             type="com.elden.t2eldencomptest.model.Friend" />
@@ -32,7 +31,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="10dp"
                     android:layout_centerVertical="true"
-                    android:src="@color/colorPrimaryDark" />
+                    tools:src="@color/colorPrimaryDark" />
 
                 <LinearLayout
                     android:id="@+id/llDetailsContainer"
@@ -69,8 +68,6 @@
                             android:text="@{friend.lastName}"
                             tools:text="Skloss" />
                     </LinearLayout>
-
-
                     <TextView
                         android:id="@+id/tvStatus"
                         android:layout_width="wrap_content"
@@ -78,7 +75,6 @@
                         android:layout_marginTop="5dp"
                         android:text="@{friend.status}"
                         tools:text="Status" />
-
                 </LinearLayout>
 
                 <ImageView
@@ -88,13 +84,8 @@
                     android:layout_marginRight="10dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:src="@color/colorPrimaryDark" />
-
-
+                    android:src="@drawable/white_center_circle" />
             </RelativeLayout>
-
-
         </android.support.v7.widget.CardView>
-
     </LinearLayout>
 </layout>

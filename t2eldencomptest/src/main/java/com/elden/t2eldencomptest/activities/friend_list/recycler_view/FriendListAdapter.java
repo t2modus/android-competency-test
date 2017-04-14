@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.elden.t2eldencomptest.R;
 import com.elden.t2eldencomptest.databinding.RvRowFriendListBinding;
 import com.elden.t2eldencomptest.model.Friend;
 import com.squareup.picasso.Picasso;
@@ -32,19 +33,22 @@ public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.Fr
 
     @Override
     public void onBindViewHolder(FriendListRvViewHolder holder, int position) {
-        if(friendList != null) {
-            holder.flBinding.setFriend(friendList.get(position));
-            holder.flBinding.executePendingBindings();
-            loadImageIntoIv(holder.flBinding.ivProfilePic, friendList.get(position).getImg());
+        holder.flBinding.setFriend(friendList.get(position));
+        holder.flBinding.executePendingBindings();
+
+        if(friendList.get(position).isAvailable()){
+            holder.flBinding.ivIsAvailable.setImageResource(R.drawable.red_center_circle);
         }
-        //On Click for when user clicks row (Drill down to Friend Detail View
-//        holder.binding.getRoot().setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //Go go Friend detail view
-//                Toast.makeText(v.getContext(), "WIP: Go to friend detail view", Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        loadImageIntoIv(holder.flBinding.ivProfilePic, friendList.get(position).getImg());
+
+//        On Click for when user clicks row (Drill down to Friend Detail View
+        holder.flBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Go go Friend detail view
+                Toast.makeText(v.getContext(), "WIP: Go to friend detail view", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

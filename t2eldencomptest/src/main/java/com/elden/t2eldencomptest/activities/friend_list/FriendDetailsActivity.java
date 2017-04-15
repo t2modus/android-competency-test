@@ -57,8 +57,9 @@ public class FriendDetailsActivity extends AppCompatActivity {
                     for(String currStatus : response.body().getStatuses()){
                         View cardView = LayoutInflater.from(FriendDetailsActivity.this).inflate(R.layout.status_card, null);
                         TextView text = (TextView) cardView.findViewById(R.id.tvStatus);
-                        text.setText(currStatus);
+                        text.setText("\"" + currStatus + "\"");
                         friendDetailBinding.llStatusContainer.addView(cardView);
+                        //// TODO: 4/14/2017 Maybe only show 3, and expand if more
                     }
                 } else {
                     Log.d(TAG, "onResponse: Failure");

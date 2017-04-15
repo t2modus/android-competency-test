@@ -2,7 +2,6 @@ package com.elden.t2eldencomptest.service_interfaces;
 
 import com.elden.t2eldencomptest.model.Friend;
 import com.elden.t2eldencomptest.model.FriendDetails;
-import com.elden.t2eldencomptest.response_models.FriendResponse;
 
 import java.util.List;
 

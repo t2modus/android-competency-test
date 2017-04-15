@@ -1,4 +1,4 @@
-package com.elden.t2eldencomptest.activities.friend_list.recycler_view;
+package com.elden.t2eldencomptest.activities.friend_list.recycler_view_adapters;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -6,11 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.elden.t2eldencomptest.Extras;
 import com.elden.t2eldencomptest.R;
-import com.elden.t2eldencomptest.activities.friend_list.FriendDetailsActivity;
+import com.elden.t2eldencomptest.activities.friend_details.FriendDetailsActivity;
 import com.elden.t2eldencomptest.databinding.RvRowFriendListBinding;
 import com.elden.t2eldencomptest.model.Friend;
 import com.squareup.picasso.Picasso;

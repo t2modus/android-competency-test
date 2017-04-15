@@ -3,7 +3,6 @@ package com.elden.t2eldencomptest.activities.friend_list;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,7 +11,7 @@ import android.widget.Toast;
 
 import com.elden.t2eldencomptest.R;
 import com.elden.t2eldencomptest.T2Application;
-import com.elden.t2eldencomptest.activities.friend_list.recycler_view.FriendListAdapter;
+import com.elden.t2eldencomptest.activities.friend_list.recycler_view_adapters.FriendListAdapter;
 import com.elden.t2eldencomptest.databinding.ActivityFriendListBinding;
 import com.elden.t2eldencomptest.model.Friend;
 import com.elden.t2eldencomptest.service_interfaces.FriendRetrofitInterface;

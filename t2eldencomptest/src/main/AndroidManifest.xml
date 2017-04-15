@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.friend_list.FriendDetailsActivity"
+            android:name=".activities.friend_details.FriendDetailsActivity"
             android:label="@string/title_activity_friend_details"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

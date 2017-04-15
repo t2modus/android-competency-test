@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">T2 Modus Android Test</string>
+
+    <string name="text_loading">Loading...</string>
+    <string name="text_contact_info">Contact Info</string>
+    <string name="text_bio_info">Bio</string>
+
+</resources>

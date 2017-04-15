@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="friendDetail"
+            type="com.elden.t2eldencomptest.model.FriendDetails" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/clMainContentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/grey"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <ImageView
+                        android:id="@+id/ivProfilePic"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        app:layout_collapseMode="parallax"
+                        tools:src="@mipmap/ic_launcher" />
+                </android.support.design.widget.CollapsingToolbarLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <android.support.constraint.ConstraintLayout
+                    android:id="@+id/clRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvFirstName"
+                        style="@style/LargeBoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="24dp"
+                        android:text="@{friendDetail.firstName}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Elden" />
+
+                    <TextView
+                        android:id="@+id/tvLastName"
+                        style="@style/LargeBoldText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="0dp"
+                        android:text="@{friendDetail.lastName}"
+                        app:layout_constraintLeft_toRightOf="@+id/tvFirstName"
+                        app:layout_constraintTop_toTopOf="@+id/tvFirstName"
+                        tools:text="Skloss" />
+
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{friendDetail.address}"
+                        app:layout_constraintLeft_toLeftOf="@+id/tvFirstName"
+                        app:layout_constraintTop_toBottomOf="@+id/tvFirstName"
+                        tools:text="1023 Street" />
+
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="0dp"
+                        android:text="@{friendDetail.city}"
+                        app:layout_constraintLeft_toRightOf="@+id/tvAddress"
+                        app:layout_constraintTop_toTopOf="@+id/tvAddress"
+                        tools:text="San Antonio" />
+
+                    <TextView
+                        android:id="@+id/tvState"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="0dp"
+                        android:text="@{friendDetail.state}"
+                        app:layout_constraintLeft_toRightOf="@+id/tvZip"
+                        app:layout_constraintTop_toTopOf="@+id/tvCity"
+                        tools:text="78251" />
+
+                    <TextView
+                        android:id="@+id/tvZip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="0dp"
+                        android:text="@{friendDetail.zipcode}"
+                        app:layout_constraintLeft_toRightOf="@+id/tvCity"
+                        app:layout_constraintTop_toTopOf="@+id/tvCity"
+                        tools:text="Tx" />
+
+                    <TextView
+                        android:id="@+id/tvBioHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/bio"
+                        app:layout_constraintLeft_toLeftOf="@+id/tvBio"
+                        app:layout_constraintTop_toBottomOf="@+id/tvAddress" />
+
+                    <TextView
+                        android:id="@+id/tvBio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="24dp"
+                        android:layout_marginTop="8dp"
+                        android:text="@{friendDetail.bio}"
+                        android:textSize="18sp"
+                        app:layout_constraintLeft_toLeftOf="@+id/tvAddress"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBioHeader"
+                        tools:text="I like really long lonely walks on the beach" />
+
+                    <LinearLayout
+                        android:id="@+id/llStatusContainer"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvBio">
+
+                    </LinearLayout>
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="10dp"
+                android:onClick="onFabClick"
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+</layout>

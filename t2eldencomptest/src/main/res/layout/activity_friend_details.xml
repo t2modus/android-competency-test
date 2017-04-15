@@ -141,7 +141,7 @@
                         app:layout_constraintLeft_toLeftOf="@+id/tvAddress"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/tvBioHeader"
-                        tools:text="I like really long lonely walkes on the beach" />
+                        tools:text="I like really long lonely walks on the beach" />
 
                     <LinearLayout
                         android:id="@+id/llStatusContainer"

@@ -5,9 +5,12 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.elden.t2eldencomptest.Extras;
@@ -50,6 +53,13 @@ public class FriendDetailsActivity extends AppCompatActivity {
                     //// TODO: 4/14/2017 need image for when image call was unsuccesfull
                     Picasso.with(FriendDetailsActivity.this).load(response.body().getImg()).into(friendDetailBinding.ivProfilePic);
                     friendDetailBinding.setFriendDetail(response.body());
+
+                    for(String currStatus : response.body().getStatuses()){
+                        View cardView = LayoutInflater.from(FriendDetailsActivity.this).inflate(R.layout.status_card, null);
+                        TextView text = (TextView) cardView.findViewById(R.id.tvStatus);
+                        text.setText(currStatus);
+                        friendDetailBinding.llStatusContainer.addView(cardView);
+                    }
                 } else {
                     Log.d(TAG, "onResponse: Failure");
                     Toast.makeText(FriendDetailsActivity.this, getString(R.string.default_error_message), Toast.LENGTH_SHORT).show();

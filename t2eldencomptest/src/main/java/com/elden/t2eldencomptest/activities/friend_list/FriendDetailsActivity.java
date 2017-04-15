@@ -25,6 +25,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity shows friends details in a collapsing toolbar
+ */
 public class FriendDetailsActivity extends AppCompatActivity {
     public static final String TAG = FriendDetailsActivity.class.getSimpleName();
     FriendRetrofitInterface retrofitInterface = T2Application.retrofit.create(FriendRetrofitInterface.class);
@@ -49,6 +52,7 @@ public class FriendDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<FriendDetails> call, Response<FriendDetails> response) {
                 friendDetailBinding.progressBar.setVisibility(View.GONE);
+                friendDetailBinding.clMainContentContainer.setVisibility(View.VISIBLE);
                 if(response.isSuccessful()){
                     //// TODO: 4/14/2017 need image for when image call was unsuccesfull
                     Picasso.with(FriendDetailsActivity.this).load(response.body().getImg()).into(friendDetailBinding.ivProfilePic);

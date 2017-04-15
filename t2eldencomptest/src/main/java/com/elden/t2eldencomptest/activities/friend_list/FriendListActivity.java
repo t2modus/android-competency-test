@@ -24,12 +24,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Activity shows a list of friends, clicking on a row brings user to Friends Detail page
+ */
 public class FriendListActivity extends AppCompatActivity {
     public static final String TAG = FriendListActivity.class.getSimpleName();
     public static final String SOMETHING_WENT_WRONG = "Something went wrong";
     private FriendRetrofitInterface friendRetrofitInterface = T2Application.retrofit.create(FriendRetrofitInterface.class);
     ActivityFriendListBinding activityFriendListBinding;
-
     private FriendListAdapter friendListAdapter;
     private RecyclerView.LayoutManager rvLayoutManager;
 
@@ -38,15 +40,19 @@ public class FriendListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityFriendListBinding = DataBindingUtil.setContentView(this, R.layout.activity_friend_list);
 
+        //Setup RecyclerView
         rvLayoutManager = new LinearLayoutManager(this);
-
         friendListAdapter = new FriendListAdapter(new ArrayList<Friend>());
-
         activityFriendListBinding.rvFriendList.setAdapter(friendListAdapter);
         activityFriendListBinding.rvFriendList.setLayoutManager(rvLayoutManager);
 
+        callGetFriendService();
+    }
 
-
+    /**
+     * Calls get friends api, returns an array of friends onSuccess and updates UI
+     */
+    private void callGetFriendService() {
         activityFriendListBinding.progressBar.setVisibility(View.VISIBLE);
         friendRetrofitInterface.getFriends().enqueue(new Callback<List<Friend>>() {
             @Override
@@ -69,7 +75,5 @@ public class FriendListActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 }

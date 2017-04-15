@@ -2,4 +2,5 @@
     <string name="app_name">T2EldenCompTest</string>
     <string name="title_activity_friend_details">FriendDetails</string>
     <string name="default_error_message">Something went wrong</string>
+    <string name="bio">Bio:</string>
 </resources>

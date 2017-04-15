@@ -20,7 +20,6 @@ import java.util.List;
 /**
  * Created by elden_000 on 4/14/2017.
  */
-
 public class FriendListAdapter extends RecyclerView.Adapter<FriendListAdapter.FriendListRvViewHolder>{
     List<Friend> friendList;
 
